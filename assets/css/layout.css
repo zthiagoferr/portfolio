@@ -1,0 +1,161 @@
+/* layout.css — container, header/nav, seções, hero, footer, breakpoints */
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+}
+
+/* ---------- Header / navegação ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 15, 23, .92);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--header-h);
+}
+
+.brand {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--text);
+}
+.brand:hover { color: var(--text); text-decoration: none; }
+.brand-dot { color: var(--accent); }
+
+.site-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.site-nav a {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+.site-nav a:hover { color: var(--text); background: rgba(148, 163, 184, .08); text-decoration: none; }
+.site-nav a[aria-current="true"] { color: var(--accent); }
+
+/* com JS: menu recolhido no mobile, aberto pelo botão */
+html.js .site-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  inset-inline: 0;
+  padding: var(--space-2) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+html.js .site-nav.is-open { display: block; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-7);
+  background:
+    radial-gradient(55% 45% at 15% 0%, rgba(34, 211, 238, .16), transparent 65%),
+    radial-gradient(40% 35% at 90% 15%, rgba(167, 139, 250, .14), transparent 65%);
+}
+@media (min-width: 640px) {
+  .hero { min-height: 78vh; min-height: 78svh; }
+}
+.hero .container { max-width: 52rem; }
+.hero-subtitle {
+  max-width: 52ch;
+  font-size: var(--text-lg);
+  color: var(--text-muted);
+}
+.hero h1 .todo { font-size: .45em; vertical-align: middle; }
+
+/* ---------- Seções ---------- */
+.section {
+  padding-block: var(--space-7);
+  scroll-margin-top: calc(var(--header-h) + .5rem);
+}
+.section + .section { border-top: 1px solid var(--border); }
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.section-title::before {
+  content: "";
+  flex: none;
+  width: 2.5rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+.section-intro { max-width: 62ch; color: var(--text-muted); }
+
+/* grades de cards */
+.agentes-grid,
+.projetos-grid,
+.cursos-grid,
+.competencias-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-5);
+}
+@media (min-width: 640px) {
+  .agentes-grid,
+  .projetos-grid,
+  .cursos-grid,
+  .competencias-grid,
+  .contato-lista { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .agentes-grid,
+  .projetos-grid,
+  .cursos-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 960px) {
+  .competencias-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: var(--space-6);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.site-footer p { margin: 0; }
+
+/* ---------- Desktop: nav completa + layout ---------- */
+@media (min-width: 960px) {
+  .site-nav,
+  html.js .site-nav {
+    position: static;
+    display: block;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+  .site-nav ul {
+    flex-direction: row;
+    gap: var(--space-2);
+  }
+}

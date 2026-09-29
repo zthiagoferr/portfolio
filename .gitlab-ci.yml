@@ -1,0 +1,14 @@
+# GitLab Pages — job inerte localmente; só executa no GitLab CI após push na branch main.
+image: alpine:latest
+
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp index.html public/
+    - cp -r assets public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
