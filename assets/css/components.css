@@ -30,6 +30,21 @@
   text-transform: uppercase;
 }
 
+.hero-title {
+  max-width: 100%;
+  margin-bottom: var(--space-5);
+  font-size: clamp(1.9rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.hero-title-accent {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
 .hero-chips {
   display: flex;
   flex-wrap: wrap;
