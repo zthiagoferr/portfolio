@@ -73,6 +73,34 @@ html.js .site-nav.is-open { display: block; }
   .hero { min-height: 78vh; min-height: 78svh; }
 }
 .hero .container { max-width: 52rem; }
+
+/* Hero em duas colunas com banner à direita (desktop) e empilhado (mobile/tablet) */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+.hero-content,
+.hero-media { min-width: 0; }
+
+.hero-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+@media (min-width: 960px) {
+  .hero .container { max-width: var(--container); }
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+    gap: var(--space-7);
+  }
+}
+
 .hero-subtitle {
   max-width: 52ch;
   font-size: var(--text-lg);
