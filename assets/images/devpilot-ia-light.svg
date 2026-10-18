@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DevPilot AI — marca autoral (símbolo próprio).
+     Versão para FUNDO CLARO: tinta escura #0b0f17 com acentos escurecidos
+     #0891b2 (ciano) e #7c3aed (roxo), para contraste sobre branco. Fundo transparente.
+     Conceito: visor de painel de instrumentos lendo linhas de código, com um feixe
+     de análise que percorre o bloco — o "piloto" que orienta a leitura do código. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 48" width="96" height="48" role="img" aria-labelledby="devpilot-ia-titulo">
+  <title id="devpilot-ia-titulo">DevPilot AI</title>
+  <defs>
+    <linearGradient id="devpilot-feixe" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0891b2"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+
+  <!-- visor do painel de análise -->
+  <rect x="3" y="7" width="90" height="34" rx="11" fill="none" stroke="#0b0f17" stroke-width="4"/>
+
+  <!-- linhas de código -->
+  <rect x="14" y="14" width="30" height="4.5" rx="2.25" fill="#0891b2"/>
+  <rect x="14" y="22" width="40" height="4.5" rx="2.25" fill="#7c3aed"/>
+  <rect x="14" y="30" width="22" height="4.5" rx="2.25" fill="#0b0f17" opacity=".55"/>
+
+  <!-- feixe de análise percorrendo o bloco de código -->
+  <rect x="72" y="10.5" width="7" height="27" rx="3.5" fill="url(#devpilot-feixe)"/>
+</svg>

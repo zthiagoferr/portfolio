@@ -304,3 +304,74 @@ html.js .menu-toggle { display: inline-flex; }
 @media print {
   .js [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
+
+/* --- Extensões: Sobre + DevPilot AI (aditivo) --- */
+.sobre-inner { display: grid; gap: var(--space-5); grid-template-columns: 1fr; }
+.sobre-texto { min-width: 0; }
+
+/* Foto da seção Sobre: apenas tamanho/enquadramento.
+   A largura é limitada a 18rem para a foto não crescer demais quando a grade
+   fica em coluna única (mobile/tablet); a proporção 3:4 é a nativa do arquivo,
+   portanto a imagem é exibida integral, sem recorte. */
+.sobre-foto { max-width: 18rem; }
+.sobre-foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Card em destaque (DevPilot AI) — mesmo tamanho dos demais cards da grade */
+.projeto-destaque {
+  border-color: rgba(34, 211, 238, .35);
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(34, 211, 238, .1), transparent 60%),
+    var(--surface);
+}
+.projeto-destaque-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.projeto-logo { display: block; height: 2.25rem; width: auto; }
+
+.badge-destaque {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  color: var(--accent);
+  background: rgba(34, 211, 238, .12);
+  border-color: rgba(34, 211, 238, .4);
+}
+.badge-destaque::before {
+  content: "";
+  width: .4rem;
+  height: .4rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.projeto-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: auto;
+}
+.projeto-acoes .btn { text-align: center; }
+
+@media (min-width: 640px) {
+  .projeto-acoes { flex-direction: row; flex-wrap: wrap; }
+}
+
+/* Duas colunas na seção Sobre em telas grandes (foto | texto) */
+@media (min-width: 960px) {
+  .sobre-inner {
+    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    align-items: start;
+  }
+  .sobre-foto { order: -1; }
+}

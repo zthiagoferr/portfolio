@@ -72,7 +72,15 @@
     <section id="sobre" class="section" aria-labelledby="sobre-titulo">
       <div class="container">
         <h2 id="sobre-titulo" class="section-title" data-reveal>Sobre</h2>
-        <p data-reveal>Desenvolvo projetos com foco em <strong>Python</strong>, <strong>backend</strong>, <strong>APIs</strong>, <strong>automação</strong> e <strong>agentes de IA</strong>. Tenho trabalhado com arquitetura multiagente, Skills, MCP e integrações entre serviços, além de aplicações que combinam backend, interfaces web e serviços externos. Busco transformar esses conhecimentos em soluções práticas, organizadas e testáveis.</p>
+        <div class="sobre-inner">
+          <div class="sobre-texto">
+            <p data-reveal>Olá, meu nome é Thiago Ferreira de Oliveira, tenho 20 anos e atualmente sou desenvolvedor Python júnior. Estou estudando e aprimorando meus conhecimentos em Python há um ano. Gostei muito do que aprendi e venho desenvolvendo minhas ideias e aperfeiçoando minhas habilidades cada vez mais.</p>
+            <p data-reveal>Desenvolvo projetos com foco em <strong>Python</strong>, <strong>backend</strong>, <strong>APIs</strong>, <strong>automação</strong> e <strong>agentes de IA</strong>. Tenho trabalhado com arquitetura multiagente, Skills, MCP e integrações entre serviços, além de aplicações que combinam backend, interfaces web e serviços externos. Busco transformar esses conhecimentos em soluções práticas, organizadas e testáveis.</p>
+          </div>
+          <div class="sobre-foto">
+            <img src="assets/images/foto-sobre.jpg" alt="Retrato de Thiago Ferreira de Oliveira em fundo escuro" width="896" height="1195">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -224,7 +232,7 @@
           <ul class="cursos-grid" data-reveal>
             <li class="card curso">
               <span class="badge badge-success">Concluída</span>
-              <p class="curso-nome">Logica de Programacao com Arduino</p>
+              <p class="curso-nome">Lógica de Programação com Arduino</p>
               <dl class="curso-meta">
                 <div class="curso-meta-item">
                   <dt>Instituição</dt>
@@ -239,7 +247,7 @@
                   <dd>07/03/2026 a 28/03/2026</dd>
                 </div>
               </dl>
-              <a class="btn btn-ghost curso-validar" href="https://www.sp.senai.br/consulta-certificado?qrcode=40326147249/15716974" target="_blank" rel="noopener noreferrer" aria-label="Validar certificado de Logica de Programacao com Arduino no site do SENAI">Validar certificado no site do SENAI</a>
+              <a class="btn btn-ghost curso-validar" href="https://www.sp.senai.br/consulta-certificado?qrcode=40326147249/15716974" target="_blank" rel="noopener noreferrer" aria-label="Validar certificado de Lógica de Programação com Arduino no site do SENAI">Validar certificado no site do SENAI</a>
             </li>
             <li class="card curso">
               <span class="badge badge-success">Concluída</span>
@@ -262,7 +270,7 @@
             </li>
             <li class="card curso">
               <span class="badge badge-success">Concluída</span>
-              <p class="curso-nome">Programacao em Python</p>
+              <p class="curso-nome">Programação em Python</p>
               <dl class="curso-meta">
                 <div class="curso-meta-item">
                   <dt>Instituição</dt>
@@ -277,7 +285,7 @@
                   <dd>16/04/2026 a 18/06/2026</dd>
                 </div>
               </dl>
-              <a class="btn btn-ghost curso-validar" href="https://www.sp.senai.br/consulta-certificado?qrcode=40326147492/15764538" target="_blank" rel="noopener noreferrer" aria-label="Validar certificado de Programacao em Python no site do SENAI">Validar certificado no site do SENAI</a>
+              <a class="btn btn-ghost curso-validar" href="https://www.sp.senai.br/consulta-certificado?qrcode=40326147492/15764538" target="_blank" rel="noopener noreferrer" aria-label="Validar certificado de Programação em Python no site do SENAI">Validar certificado no site do SENAI</a>
             </li>
           </ul>
         </div>
@@ -300,6 +308,27 @@
         <h2 id="projetos-titulo" class="section-title" data-reveal>Projetos</h2>
         <p class="section-intro" data-reveal>Projetos reais com código-fonte disponível nos repositórios do GitHub.</p>
         <div class="projetos-grid" data-reveal>
+          <article class="card projeto projeto-destaque">
+            <div class="projeto-destaque-topo">
+              <img class="projeto-logo" src="assets/images/devpilot-ia-dark.svg" alt="Logo do projeto DevPilot AI" width="96" height="48" decoding="async">
+              <span class="badge badge-destaque">Projeto principal</span>
+            </div>
+            <h3 class="projeto-titulo">DevPilot AI</h3>
+            <p>Plataforma de análise de código com inteligência artificial, desenvolvida com Python e FastAPI. Permite analisar código e carregar repositórios públicos do GitHub, além de oferecer autenticação com Firebase e histórico individual de análises.</p>
+            <ul class="projeto-tags" aria-label="Tecnologias do projeto DevPilot AI">
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>PostgreSQL</li>
+              <li>Neon</li>
+              <li>Firebase Authentication</li>
+              <li>GitHub API</li>
+              <li>Render</li>
+            </ul>
+            <div class="projeto-acoes">
+              <a class="btn" href="https://zthiagoferr.github.io/devpilot-ai/" target="_blank" rel="noopener noreferrer" aria-label="Abrir a aplicação DevPilot AI em nova aba">Aplicação</a>
+              <a class="btn btn-ghost" href="https://github.com/zthiagoferr/devpilot-ai" target="_blank" rel="noopener noreferrer" aria-label="Ver repositório no GitHub do projeto DevPilot AI">Repositório</a>
+            </div>
+          </article>
           <article class="card projeto">
             <h3 class="projeto-titulo">Casa do Pastel Judá — Bot de Pedidos</h3>
             <p>Bot de pedidos via Telegram com cardápio, carrinho persistente, Pix, Mercado Pago, entrega por CEP e painel administrativo. Backend Python com aiohttp, PostgreSQL e Alembic, além de suíte automatizada com 89 testes.</p>
