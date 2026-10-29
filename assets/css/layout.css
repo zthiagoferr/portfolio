@@ -1,188 +1,42 @@
-/* layout.css — container, header/nav, seções, hero, footer, breakpoints */
-
-.container {
-  width: var(--container);
-  margin-inline: auto;
-}
-
-/* ---------- Header / navegação ---------- */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(11, 15, 23, .92);
-  border-bottom: 1px solid var(--border);
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  min-height: var(--header-h);
-}
-
-.brand {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: var(--text-lg);
-  color: var(--text);
-}
-.brand:hover { color: var(--text); text-decoration: none; }
-.brand-dot { color: var(--accent); }
-
-.site-nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-.site-nav a {
-  display: block;
-  padding: var(--space-2) var(--space-3);
-  color: var(--text-muted);
-  border-radius: var(--radius-sm);
-  transition: color var(--t-fast), background-color var(--t-fast);
-}
-.site-nav a:hover { color: var(--text); background: rgba(148, 163, 184, .08); text-decoration: none; }
-.site-nav a[aria-current="true"] { color: var(--accent); }
-
-/* com JS: menu recolhido no mobile, aberto pelo botão */
-html.js .site-nav {
-  display: none;
-  position: absolute;
-  top: 100%;
-  inset-inline: 0;
-  padding: var(--space-2) var(--space-4) var(--space-4);
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-html.js .site-nav.is-open { display: block; }
-
-/* ---------- Hero ---------- */
-.hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding-block: var(--space-7);
-  background:
-    radial-gradient(55% 45% at 15% 0%, rgba(34, 211, 238, .16), transparent 65%),
-    radial-gradient(40% 35% at 90% 15%, rgba(167, 139, 250, .14), transparent 65%);
-}
-@media (min-width: 640px) {
-  .hero { min-height: 78vh; min-height: 78svh; }
-}
-
-/* Hero em duas colunas com banner à direita (desktop) e empilhado (mobile/tablet) */
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-6);
-  align-items: center;
-}
-.hero-content,
-.hero-media { min-width: 0; }
-
-.hero-media img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-@media (min-width: 960px) {
-  /* Hero mais largo em telas grandes: banner ganha presença sem crop */
-  .hero .container { max-width: min(100% - 2.5rem, 100rem); }
-  .hero-inner {
-    grid-template-columns: minmax(0, 34fr) minmax(0, 66fr); /* ~34% texto | ~66% banner */
-    gap: var(--space-6); /* ~2rem — gap moderado, banner continua dominante */
-  }
-}
-
-.hero-subtitle {
-  max-width: 52ch;
-  font-size: var(--text-lg);
-  color: var(--text-muted);
-}
-
-/* ---------- Seções ---------- */
-.section {
-  padding-block: var(--space-7);
-  scroll-margin-top: calc(var(--header-h) + .5rem);
-}
-.section + .section { border-top: 1px solid var(--border); }
-
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-.section-title::before {
-  content: "";
-  flex: none;
-  width: 2.5rem;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-}
-.section-intro { max-width: 62ch; color: var(--text-muted); }
-
-/* grades de cards */
-.agentes-grid,
-.projetos-grid,
-.cursos-grid,
-.competencias-grid {
-  display: grid;
-  gap: var(--space-4);
-  grid-template-columns: 1fr;
-  margin-top: var(--space-5);
-}
-@media (min-width: 640px) {
-  .agentes-grid,
-  .projetos-grid,
-  .cursos-grid,
-  .competencias-grid,
-  .contato-lista { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 960px) {
-  .agentes-grid,
-  .projetos-grid,
-  .cursos-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (min-width: 960px) {
-  .competencias-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-/* ---------- Footer ---------- */
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding-block: var(--space-6);
-  color: var(--text-muted);
-  font-size: var(--text-sm);
-}
-.site-footer .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: var(--space-3);
-}
-.site-footer p { margin: 0; }
-
-/* ---------- Desktop: nav completa + layout ---------- */
-@media (min-width: 960px) {
-  .site-nav,
-  html.js .site-nav {
-    position: static;
-    display: block;
-    padding: 0;
-    background: none;
-    border: 0;
-    box-shadow: none;
-  }
-  .site-nav ul {
-    flex-direction: row;
-    gap: var(--space-2);
-  }
-}
+/* layout.css — container, header/nav, hero, seções, grades e footer (verbatim da referência) */
+.container{max-width:1220px;padding:0 32px;margin:auto}
+.site-header{position:sticky;top:0;z-index:40;background:#090909e8;backdrop-filter:blur(20px);border-bottom:1px solid #292929}
+.header-inner{min-height:79px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{font-size:25px;font-weight:850;letter-spacing:-1.3px}
+.brand-dot{color:#888}
+.site-nav ul{padding:0;margin:0;list-style:none;display:flex;align-items:center;gap:24px}
+.site-nav a{font-size:13px;font-weight:600;color:#a9a9a9;transition:color .2s}
+.site-nav a:hover,.site-nav a[aria-current=true]{color:white}
+.menu-toggle{display:none;background:transparent;border:1px solid var(--line);color:white;border-radius:10px;padding:9px 14px}
+/* ícone do botão de menu (extra: a referência usa o mesmo markup, porém sem regra própria) */
+.menu-toggle-icon{position:relative;display:block;width:20px;height:2px;margin:6px auto;background:currentColor;border-radius:2px}
+.menu-toggle-icon::before,.menu-toggle-icon::after{content:"";position:absolute;inset-inline:0;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease,top .2s ease}
+.menu-toggle-icon::before{top:-7px}
+.menu-toggle-icon::after{top:7px}
+.menu-toggle[aria-expanded=true] .menu-toggle-icon{background:transparent}
+.menu-toggle[aria-expanded=true] .menu-toggle-icon::before{top:0;transform:rotate(45deg)}
+.menu-toggle[aria-expanded=true] .menu-toggle-icon::after{top:0;transform:rotate(-45deg)}
+.hero{min-height:650px;display:flex;align-items:center;padding:100px 0 96px;position:relative;border-bottom:1px solid #222}
+.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,transparent 70%,#ffffff05)}
+.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero-media{position:relative}
+.portrait-wrap{position:relative;overflow:hidden;max-width:440px;margin-left:auto;min-height:500px;border:1px solid #3d3d3d;border-radius:22px;box-shadow:var(--shadow);background:#161616}
+.portrait-wrap:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#080808 0%,transparent 30%,transparent 75%,#09090999 100%)}
+.portrait-wrap img{height:500px;width:100%;object-fit:cover;object-position:center 24%}
+.portrait-top,.portrait-bottom{position:absolute;z-index:2;left:24px;right:24px;display:flex;justify-content:space-between;gap:12px;font-family:ui-monospace,SFMono-Regular,monospace;font-size:10px;letter-spacing:1.1px}
+.portrait-top{top:22px;color:#ddd}
+.portrait-bottom{bottom:22px;color:#eee;font-weight:800}
+.section{padding:104px 0;border-bottom:1px solid #252525}
+.section-title{font-size:clamp(32px,3.5vw,47px);letter-spacing:-1.8px;line-height:1.15;margin:0 0 25px;font-weight:800}
+.section-intro{color:#aaa;max-width:710px;margin:-10px 0 36px}
+.sobre-inner{display:grid;grid-template-columns:1.2fr .65fr;gap:70px;align-items:center}
+.sobre-texto{color:#bcbcbc;font-size:16px;max-width:760px}
+.sobre-texto strong{color:white}
+.sobre-foto{display:none}
+.competencias-grid,.agentes-grid,.projetos-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.agentes-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cursos-grid{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.contato-lista{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.site-footer{padding:28px 0 45px;color:#888;font-size:12px}
+.site-footer .container{display:flex;justify-content:space-between;gap:20px}
+.site-footer p{margin:0}

@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0f17">
+  <meta name="theme-color" content="#090909">
   <title>Thiago Ferreira de Oliveira — Portfólio · Python, Agentes de IA e Automações</title>
   <meta name="description" content="Portfólio profissional com foco em desenvolvimento Python, configuração e desenvolvimento de agentes de IA, arquitetura multiagente, Skills, MCP e automações.">
-  <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <script src="assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="assets/css/tokens.css?v=69bf7b0">
+  <link rel="stylesheet" href="assets/css/base.css?v=69bf7b0">
+  <link rel="stylesheet" href="assets/css/layout.css?v=69bf7b0">
+  <link rel="stylesheet" href="assets/css/components.css?v=69bf7b0">
+  <script src="assets/js/main.js?v=69bf7b0" defer></script>
 </head>
 <body>
+  <canvas id="ambient-background" aria-hidden="true"></canvas>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="site-header">
@@ -45,7 +46,7 @@
       <div class="container">
         <div class="hero-inner">
           <div class="hero-content">
-            <p class="hero-eyebrow" data-reveal>Desenvolvimento &middot; Python &middot; Agentes de IA</p>
+            <p class="hero-eyebrow" data-reveal><span class="status-dot"></span> Desenvolvimento &middot; Python &middot; Agentes de IA</p>
             <h1 id="inicio-titulo" class="hero-title" data-reveal>Projetos reais com <span class="hero-title-accent">Python</span> e <span class="hero-title-accent">Agentes de IA</span></h1>
             <p class="hero-subtitle" data-reveal>Conhecimento prático em Python, automações e integração de tecnologias — com foco crescente em configuração e desenvolvimento de agentes de Inteligência Artificial, arquitetura multiagente, Skills e MCP.</p>
             <ul class="hero-chips" data-reveal aria-label="Tecnologias e áreas de atuação">
@@ -62,7 +63,11 @@
             </p>
           </div>
           <div class="hero-media" data-reveal>
-            <img src="assets/images/banner-agentes-ia.png" alt="Banner ilustrando agentes de Inteligência Artificial em arquitetura multiagente" width="2055" height="765">
+            <div class="portrait-wrap">
+              <div class="portrait-top">PORTFÓLIO / 2026 <span>PYTHON • IA • AUTOMAÇÕES</span></div>
+              <img src="assets/images/foto-sobre.jpg" alt="Retrato de Thiago Ferreira de Oliveira em fundo escuro" width="896" height="1195">
+              <div class="portrait-bottom"><span>THIAGO FERREIRA</span><span>DESENVOLVEDOR PYTHON</span></div>
+            </div>
           </div>
         </div>
       </div>
