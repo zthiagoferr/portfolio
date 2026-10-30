@@ -1,6 +1,6 @@
 /* layout.css — container, header/nav, hero, seções, grades e footer (verbatim da referência) */
 .container{max-width:1220px;padding:0 32px;margin:auto}
-.site-header{position:sticky;top:0;z-index:40;background:#090909e8;backdrop-filter:blur(20px);border-bottom:1px solid #292929}
+.site-header{position:sticky;top:0;z-index:40;background:#000000e6;backdrop-filter:blur(20px);border-bottom:1px solid #1f1f1f}
 .header-inner{min-height:79px;display:flex;align-items:center;justify-content:space-between;gap:22px}
 .brand{font-size:25px;font-weight:850;letter-spacing:-1.3px}
 .brand-dot{color:#888}
@@ -17,18 +17,18 @@
 .menu-toggle[aria-expanded=true] .menu-toggle-icon::before{top:0;transform:rotate(45deg)}
 .menu-toggle[aria-expanded=true] .menu-toggle-icon::after{top:0;transform:rotate(-45deg)}
 .hero{min-height:650px;display:flex;align-items:center;padding:100px 0 96px;position:relative;border-bottom:1px solid #222}
-.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,transparent 70%,#ffffff05)}
+.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,transparent 70%,#ffffff03)}
 .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
 .hero-media{position:relative}
-.portrait-wrap{position:relative;overflow:hidden;max-width:440px;margin-left:auto;min-height:500px;border:1px solid #3d3d3d;border-radius:22px;box-shadow:var(--shadow);background:#161616}
+.portrait-wrap{position:relative;overflow:hidden;max-width:370px;margin-left:auto;min-height:420px;border:1px solid #3d3d3d;border-radius:22px;box-shadow:var(--shadow);background:#0b0b0b}
 .portrait-wrap:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#080808 0%,transparent 30%,transparent 75%,#09090999 100%)}
-.portrait-wrap img{height:500px;width:100%;object-fit:cover;object-position:center 24%}
+.portrait-wrap img{height:420px;width:100%;object-fit:cover;object-position:center 24%}
 .portrait-top,.portrait-bottom{position:absolute;z-index:2;left:24px;right:24px;display:flex;justify-content:space-between;gap:12px;font-family:ui-monospace,SFMono-Regular,monospace;font-size:10px;letter-spacing:1.1px}
 .portrait-top{top:22px;color:#ddd}
 .portrait-bottom{bottom:22px;color:#eee;font-weight:800}
 .section{padding:104px 0;border-bottom:1px solid #252525}
 .section-title{font-size:clamp(32px,3.5vw,47px);letter-spacing:-1.8px;line-height:1.15;margin:0 0 25px;font-weight:800}
-.section-intro{color:#aaa;max-width:710px;margin:-10px 0 36px}
+.section-intro{color:#b0b0b0;max-width:710px;margin:-10px 0 36px}
 .sobre-inner{display:grid;grid-template-columns:1.2fr .65fr;gap:70px;align-items:center}
 .sobre-texto{color:#bcbcbc;font-size:16px;max-width:760px}
 .sobre-texto strong{color:white}

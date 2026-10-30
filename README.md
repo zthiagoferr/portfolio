@@ -1,81 +1,92 @@
-# Portfólio — Landing Page Profissional
+# Thiago Ferreira de Oliveira — Portfólio
 
-Landing page / portfólio pessoal estático, preparada para publicação em **GitHub Pages** e **GitLab Pages**.
+Portfólio pessoal desenvolvido em **Angular 20**, TypeScript, HTML, CSS e JavaScript. Apresenta projetos, competências, cursos e uma seção conceitual sobre agentes de IA, com visual escuro, interações e versão em português/inglês.
 
-Foco: desenvolvimento com **Python**, **backend e APIs**, **agentes de IA** (arquitetura multiagente, Skills, MCP, agentes especializados e Orquestrador), **frontend e interfaces** e **DevOps e ferramentas**.
+**Site:** https://zthiagoferr.github.io/portfolio/  
+**Repositório:** https://github.com/zthiagoferr/portfolio
 
-## Seções da página
+## Principais funcionalidades
 
-- **Início / Hero** — chamada inicial com tecnologias e áreas de atuação.
-- **Sobre** — apresentação profissional curta, baseada nos conhecimentos e projetos do portfólio.
-- **Competências** — quatro pilares: Backend & APIs, Agentes de IA & Automação, Frontend & Interfaces e DevOps & Ferramentas; Arduino aparece como conhecimento complementar.
-- **Agentes de IA** — ambiente multiagente (Orquestrador, Analista, Arquiteto, Engenheiro, Revisor e Pesquisador) e destaques.
-- **Certificações e Formação** — três certificados concluídos (SENAI) e um curso em andamento.
-- **Projetos** — três projetos reais com repositórios no GitHub.
-- **Contato** — e-mail, GitHub, GitLab e LinkedIn.
+- Layout responsivo, navegação por seções, idiomas **PT/EN** e temas **escuro/claro**.
+- Fundo tecnológico animado, grade/rede neural, efeitos cinematográficos, parallax e títulos com animação de decodificação.
+- Card da fotografia com **giro 3D arrastando o mouse** (e interação via teclado); o verso contém um **terminal Python animado demonstrativo** — não executa Python.
+- Seções de apresentação, competências, agentes de IA, cursos, projetos e contato.
+- Diagrama de agentes **ilustrativo**, não conectado a agentes ou APIs reais.
+- Portfolio Terminal no navegador, com comandos locais; não é um shell do sistema operacional.
+- Formulário de contato via **Web3Forms**, com alternativa `mailto:` quando a chave não está configurada.
+- Respeito a `prefers-reduced-motion` nas animações adicionais.
 
-## Stack
+Esta edição **não usa Liquid Glass**, nem backend FastAPI, laboratório de agentes, assistente de IA ou painéis de GitHub em tempo real.
 
-- HTML5 + CSS3 + JavaScript vanilla (melhoria progressiva);
-- **Zero dependências, zero build, zero CDNs, zero fontes externas**;
-- Conteúdo 100% no HTML — a página é totalmente funcional e legível com JavaScript desativado.
+## Requisitos
 
-## Como executar localmente
+- Node.js compatível com Angular 20 (o workflow de publicação utiliza **Node.js 22**).
+- npm.
 
-Opção 1 — servidor local:
+## Executar localmente
 
 ```bash
-python3 -m http.server 8000
-# acesse http://localhost:8000
+npm install
+npm start
 ```
 
-Opção 2 — sem servidor: abra o arquivo `index.html` diretamente no navegador (`file://`). Tudo é relativo, portanto funciona.
+Acesse **http://localhost:4200/**. Execute os comandos na pasta onde está o `package.json`.
 
-## Estrutura de arquivos
+## Configurar o formulário de contato
 
+1. Crie/valide uma Access Key no [Web3Forms](https://web3forms.com/) com o e-mail que receberá as mensagens.
+2. Edite `public/config.js`:
+
+   ```javascript
+   window.PORTFOLIO_CONFIG = { web3formsAccessKey: 'SUA_ACCESS_KEY' };
+   ```
+
+3. Execute `npm start`, envie uma mensagem de teste na seção **Contato** e confirme o recebimento.
+
+O e-mail exibido e usado no link de contato é **thia80.ferreira@gmail.com**. O Web3Forms entrega mensagens ao endereço associado à **chave**, que deve ser verificado no serviço. Com a chave vazia, o formulário utiliza a alternativa `mailto:`.
+
+**Segurança:** `public/config.js` é copiado para o site público. A Access Key do Web3Forms é uma chave de cliente; **nunca inclua senhas, segredos de servidor ou tokens privados** nesse arquivo. Ative os mecanismos antispam oferecidos pelo serviço, conforme necessário.
+
+## Build de produção
+
+```bash
+npm run build -- --configuration production --base-href /portfolio/
 ```
-.
-├── index.html                 # página única (conteúdo 100% no HTML)
-├── README.md
-├── .gitignore
-├── .gitlab-ci.yml             # job "pages" (inerte localmente, só age no GitLab)
-└── assets/
-    ├── css/
-    │   ├── tokens.css         # design tokens (cores, tipografia, espaçamento, radii, sombras)
-    │   ├── base.css           # reset mínimo, tipografia, links, focus-visible, skip-link
-    │   ├── layout.css         # container, header/nav, seções, hero, footer, breakpoints
-    │   └── components.css     # cards, badges, botões, menu mobile, animações/reveal
-    └── js/
-        └── main.js            # <script defer>: menu mobile, ano do footer, reveal, scrollspy, smooth scroll
-```
 
-Não há `assets/img` — os ícones são SVG inline.
+Para o projeto `zthiagoferr/portfolio`, o prefixo `/portfolio/` é necessário para carregar scripts, CSS e imagens no GitHub Pages. A saída esperada fica em **`dist/portfolio/browser/`**.
 
-## Conteúdo
+## Publicar no GitHub Pages
 
-Todo o conteúdo da página está preenchido:
+A publicação é feita pelo workflow **`.github/workflows/deploy-pages.yml`**, acionado por pushes na branch `main` ou manualmente na aba Actions.
 
-- **Sobre** — apresentação profissional curta (sem placeholder).
-- **Projetos** — três projetos reais, com descrição e repositórios no GitHub:
-  - **Casa do Pastel Judá — Bot de Pedidos** → `https://github.com/zthiagoferr/pastelaria-bot`
-  - **URL Shortener API** → `https://github.com/zthiagoferr/url-shortener`
-  - **DevShowcase** → `https://github.com/zthiagoferr/devshowcase`
-- **Contato** — e-mail, GitHub, GitLab e LinkedIn preenchidos com os dados reais.
+Leia **[Guia de publicação](README-PUBLICACAO-GITHUB-PAGES.md)** antes de enviar a primeira versão. O código deve ficar **na raiz do repositório**, não dentro de uma subpasta extra `portfolio-angular/`.
 
-## Preparação para GitHub Pages (ação futura do DONO — não executada)
+## Organização do projeto
 
-1. Criar repositório no GitHub e fazer push da branch `main` (não realizado nesta entrega).
-2. No repositório: **Settings → Pages → Build and deployment → Source: "Deploy from a branch" → Branch: `main` → pasta `/` (raiz)**.
-3. Salvar; o site fica disponível em `https://<usuario>.github.io/<repositorio>/`.
+| Caminho | Responsabilidade |
+| --- | --- |
+| `src/app/app.component.html` | Estrutura da página e seções |
+| `src/app/app.component.ts` | Componente Angular e carregamento dos scripts de interatividade |
+| `src/styles.css` | Estilos e ajustes visuais recentes |
+| `public/assets/css/` | Estilos originais do portfólio |
+| `public/assets/js/main.js` | Navegação, idiomas, temas e envio do formulário, entre outras interações |
+| `public/assets/js/python-flip-card.js` | Giro 3D da foto e animação de código Python |
+| `public/assets/js/cinematic-*.js` | Efeitos decorativos cinematográficos |
+| `public/assets/images/` | Imagens do projeto |
+| `public/config.js` | Chave pública do Web3Forms |
+| `.github/workflows/deploy-pages.yml` | Compilação e publicação automática no GitHub Pages |
 
-## Preparação para GitLab Pages (ação futura do DONO — não executada)
+A aplicação usa Angular como estrutura de execução, mas mantém scripts JavaScript legados para várias interações; **não é uma reescrita completa em componentes e serviços Angular**.
 
-1. O `.gitlab-ci.yml` já existe no projeto e ativa o job `pages` (copiando `index.html` + `assets/` para `public/`).
-2. Fazer push do projeto para um repositório GitLab (não realizado nesta entrega); o job roda automaticamente na branch `main`.
-3. O site fica disponível em `https://<usuario>.gitlab.io/<projeto>/`.
+## Documentação complementar
 
-> O `.gitlab-ci.yml` é inerte localmente: só executa no GitLab CI após o push pelo dono.
+- [Publicação e soluções de problemas](README-PUBLICACAO-GITHUB-PAGES.md)
+- [Arquitetura do frontend](README-FRONTEND.md)
+- [Efeitos Cinematic Premium](README-CINEMATIC-PREMIUM.md)
+- [Histórico de mudanças](CHANGELOG.md)
 
-## Status
+## Observações
 
-Nenhum `git init`, commit, push ou deploy foi realizado. Único arquivo pré-existente: `REQUISITOS.md` (fonte da verdade, não alterado).
+- Os terminais, indicadores e fluxos de agentes têm propósito visual/educacional: não executam código ou agentes no servidor.
+- O layout deve ser testado com mouse, teclado, dispositivos móveis e os dois temas.
+- Não envie `node_modules/`, `dist/` ou `.angular/` ao repositório.

@@ -1,0 +1,46 @@
+name: Publicar Portfólio Angular no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar dependências
+        run: npm install --no-audit --no-fund
+      - name: Compilar Angular para /portfolio/
+        run: npm run build -- --configuration production --base-href /portfolio/
+      - name: Preparar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Publicar artefato estático
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/portfolio/browser
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Implantar site
+        id: deployment
+        uses: actions/deploy-pages@v4
